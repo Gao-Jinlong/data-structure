@@ -26,5 +26,25 @@ int main()
 
     return 0;
 }
-
+// 5! + 3! + 6! = 846
 /* 你的代码将被嵌在这里 */
+int FactorialSum( List L ){
+    int factorial[12];
+    factorial[0] = 1;
+    int sum = 0;
+    int i = 1;
+    int max = 0;
+    while(L){
+        if(max < L->Data){
+            max = L->Data;
+            while (i <= max)
+            {
+                factorial[i] = factorial[i-1] * i;
+                i++;
+            }
+        }
+        sum += factorial[L->Data];
+        L = L->Next;
+    }
+    return sum;
+}
